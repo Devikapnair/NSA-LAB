@@ -1,0 +1,121 @@
+$ mkdir salees
+exam@debian:~$ cd salees
+exam@debian:~/salees$ mkdir location1
+exam@debian:~/salees$ cd location1
+exam@debian:~/salees/location1$ cat>sales1
+hh
+ii
+^Z
+[1]+  Stopped                 cat > sales1
+exam@debian:~/salees/location1$ cat>sales2
+hhj
+uuu
+^Z
+[2]+  Stopped                 cat > sales2
+exam@debian:~/salees/location1$ cat>sales3
+bbb
+ddd
+^Z
+[3]+  Stopped                 cat > sales3
+exam@debian:~/salees/location1$ cd ..
+[3]+  Stopped                 cat > sales3
+exam@debian:~/salees/location1$ cd ..
+exam@debian:~/salees$ mkdir location2
+exam@debian:~/salees$ cd location2
+exam@debian:~/salees/location2$ cat>pur1
+fff
+xxx
+^Z
+[4]+  Stopped                 cat > pur1
+exam@debian:~/salees/location2$ cat>pur2
+ff
+jj
+^Z
+[5]+  Stopped  
+exam@debian:~/salees$ cd location3
+exam@debian:~/salees/location3$ cat>stock1
+l1  
+l2
+l3
+l4
+l5
+l6
+l7
+l8
+l9
+l10
+l11
+^Z
+[7]+  Stopped                 cat > stock1
+exam@debian:~/salees/location3$ cd ..
+exam@debian:~/salees$ cd location2
+exam@debian:~/salees/location2$ cat pur1 pur2>pur3
+exam@debian:~/salees/location2$ ls
+pur1  pur2  pur3
+exam@debian:~/salees/location2$ cd ~
+exam@debian:~$ cp salees/location2/pur3 salees/location3/stock3
+exam@debian:~$ cd salees
+exam@debian:~/salees$ cd location3
+exam@debian:~/salees/location3$ ls
+stock1  stock3
+exam@debian:~/salees/location3$ head 10 stock1
+head: cannot open '10' for reading: No such file or directory
+==> stock1 <==
+l1
+l2
+l3
+l4
+l5
+l6
+l7
+l8
+l9
+l10
+exam@debian:~/salees/location3$ cd ..
+exam@debian:~/salees$ ls -al
+total 24
+drwxr-xr-x  5 exam exam 4096 Oct  8 14:07 .
+drwxr-xr-x 23 exam exam 4096 Oct  8 14:03 ..
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:05 location1
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:09 location2
+drwxr-xr-x  2 exam exam 4096 Oct  8 14:13 location3
+-rw-r--r--  1 exam exam   22 Oct  8 14:07 stock1
+2)shell
+echo -e "menu \n 1 for volume of sphere \n 2 for volume of cube \n 3 for volume of cylinder"
+echo "enter the choice"
+read ch
+case $ch in
+1)echo "enter the value of pie"
+read p
+echo "enter the value of r1"
+read r1
+echo "enter the value of r2"
+read r2
+echo "enter the value of r3"
+read r3
+echo "enter the value of a"
+read a
+echo "enter the value of b"
+read b
+volume=`expr $a */ $p */ $r1 */ $r2 */ $r3 `
+voumes=`expr $volume / $b`
+echo "volume=$volume";;
+2)echo "enter the first value"
+read a
+echo "enter the second value"
+read b
+echo "enter the third value"
+read c
+volume1='expr $a */ $b' 
+volume2='expr $volume1 */ $c'
+echo "volume=$volume2";;
+3)echo "enter the value of p"
+read p
+echo "enter value of r1"
+read r1
+echo "enter value of r2"
+read r2
+volume=`expr $p */ $r1 */ $r2 `
+echo "$volume";;
+esac
+
